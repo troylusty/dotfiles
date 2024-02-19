@@ -1,0 +1,10 @@
+#!/bin/sh
+
+ffplay -window_title Webcam \
+-fast \
+-f v4l2 \
+-an \
+-video_size 426x240 \
+-framerate 30 \
+-input_format mjpeg \
+/dev/video0

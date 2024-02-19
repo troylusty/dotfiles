@@ -1,0 +1,24 @@
+#!/bin/sh
+# Needs cifs-utils
+
+IP="192.168.0.21"
+NAS="troynas"
+USERNAME="troy"
+PASSWORD=$(cat ~/documents/wiki/others/nas-pass.md)
+
+share=$(echo -e "document\nimage\nvideo\nmusic\nbook" | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Share: " -H 28) # smbclient -L //192.168.0.21
+
+if [[ $share == "document" ]] || [[ $share == "image" ]] || [[ $share == "video" ]] || [[ $share == "music" ]] || [[ $share == "book" ]]; then
+    read -p "Connect(c) or Disconnect(d)? " choice
+    if [[ $choice == "C" ]] || [[ $choice == "c" ]]; then
+        sudo mkdir -p /mnt/$NAS-$share
+        echo "Connecting: $NAS-$share"
+        sudo mount -t cifs -o username=$USERNAME,password=$PASSWORD,uid=$(id -u),gid=$(id -g) //$IP/$share /mnt/$NAS-$share
+        echo "Connected: /mnt/$NAS-$share"
+    elif [[ $choice == "D" ]] || [[ $choice == "d" ]];then
+        sudo umount -t cifs /mnt/$NAS-$share -l && sudo rm -rf /mnt/$NAS-$share
+        echo "Disconnected $NAS-$share"
+    fi
+else
+    echo "Not found"
+fi

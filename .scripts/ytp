@@ -1,0 +1,25 @@
+#!/bin/sh
+
+if [[ $1 == "-s" ]]; then
+    video=$(yt-dlp -f b --get-url $2)
+    mpv --no-terminal --volume=$VOLUME --title="YouTube Player" $video &
+else
+    INVIDIOUS="https://vid.puffyan.us"
+    RETURN=5
+    VOLUME=25
+
+    searchQuery="$(printf '%s' "$*" | tr ' ' '+' )"
+    videoId="$(curl -s "$INVIDIOUS/search?q=$searchQuery" | grep -Eo "watch\?v=.{11}" | sort -u | head -n $RETURN)"
+    noSpace=$(echo $videoId | tr ' ' ';')
+
+    IFS=';' read -ra LOOP <<< "$noSpace"
+    for i in "${LOOP[@]}"; do
+        currentTitle=$(yt-dlp --get-title "https://youtube.com/$i")
+        loopOutput="${loopOutput}$currentTitle ($i);"
+    done
+
+    selection=$(echo $loopOutput | tr ';' '\n' | grep -v '^\s*$' | fzf)
+    videoUrl=$(echo $selection | sed -e 's/(\(.*\))/\1/')
+
+    mpv --no-terminal --volume=$VOLUME --title="YouTube Player" "$(yt-dlp -f b --get-url "https://youtube.com/$videoUrl")" &
+fi

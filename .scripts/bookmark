@@ -1,0 +1,13 @@
+#!/bin/sh
+
+bookmark=$(wl-paste)
+file="$HOME/documents/wiki/others/bookmarks.md"
+
+if [[ -z "${bookmark##http*}" ]]; then
+    if grep -q "^$bookmark$" "$file"; then
+        notify-send "Already bookmarked!" --app-name "Bookmark"
+    else
+        notify-send "Bookmark added!" "$bookmark is now saved." --app-name "Bookmark"
+        echo "$bookmark" >> "$file"
+    fi
+fi

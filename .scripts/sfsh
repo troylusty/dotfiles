@@ -1,0 +1,12 @@
+#!/bin/sh
+
+DOMAIN="https://0x0.st"
+
+dir=$(uuidgen | cut -d'-' -f1)
+mkdir /tmp/$dir
+cp $1 /tmp/$dir
+zip -r -j /tmp/$dir.zip /tmp/$dir
+zipcloak /tmp/$dir.zip
+url=$(curl -F"file=@/tmp/$dir.zip" -Fexpires=24 $DOMAIN)
+wl-copy $url && echo $url
+notify-send "Uploaded to $url" --app-name $DOMAIN

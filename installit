@@ -1,0 +1,60 @@
+#!/bin/sh
+
+read -p "NVIDIA? (y or n) " nvidia
+
+if [[ $nvidia == "y" ]] || [[ $nvidia == "Y" ]]; then
+    sudo pacman -S nvidia-open-dkms libva
+    #cat "nvidia_drm.modeset=1" >> /boot/loader/entries/arch.conf
+    #cat "nvidia nvidia_modeset nvidia_uvm nvidia_drm" >> /etc/mkinitcpio.conf
+    #cat "options nvidia-drm modeset=1" >> /etc/modprobe.d/nvidia.conf
+fi
+
+if [[ -z "sudo pacman -Q | grep paru" ]]; then
+    sudo pacman -S --needed base-devel
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
+    makepkg -si
+    cd ..
+    rm -rf paru
+fi
+
+#echo "end" & exit
+
+sudo pacman -S \
+    pipewire wireplumber polkit-gnome qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
+    dunst \
+    fastfetch \
+    foot \
+    hyprland hyprpaper gnome-themes-extra \
+    ly \
+    mpd ncmpcpp mpc \
+    neovim nodejs npm \
+    waybar \
+    yazi ffmpegthumbnailer ntfs-3g \
+    bat bemenu btop \
+    blener gimp inkscape godot \
+    grim slurp \
+    hugo rust typst \
+    imv mpv \
+    man-db \
+    ncdu \
+    pulsemixer \
+    sbctl \
+    signal-desktop \
+    steam \
+    stow \
+    syncthing \
+    trash-cli \
+    ttf-jetbrains-mono-nerd \
+    udiskie \
+    unarchiver \
+    waylock \
+    wl-clipboard \
+    zathura zathura-pdf-poppler \
+
+paru -S \
+    hyprpicker-git \
+    librewolf-bin \
+    reflector \
+    rivalcfg \
+    tor-browser-bin \

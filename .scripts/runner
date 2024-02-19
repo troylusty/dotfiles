@@ -1,0 +1,3 @@
+#!/bin/sh
+
+compgen -c | sort -u | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Run:" -H 28 | xargs hyprctl dispatch exec --

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+file="$HOME/documents/wiki/others/bookmarks.md"
+browser="librewolf -new-tab -url"
+
+open=$(cat $file | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Bookmark:" -H 28)
+
+if [[ -z "$open" ]]; then
+      echo "Var is empty"
+else
+      $browser $open
+fi

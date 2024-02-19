@@ -1,0 +1,11 @@
+#!/bin/sh
+
+ffmpeg \
+-f pulse -ac 2 -i alsa_output.usb-Audient_EVO4-00.analog-surround-40.monitor \
+-f pulse -ac 1 -i alsa_input.usb-BLUE_MICROPHONE_Blue_Snowball_AYM_2018_10_10_32667-00.mono-fallback \
+-filter_complex amix=inputs=2 \
+-f kmsgrab -i - \
+-s 1920x1080 -r 30 -vf 'hwdownload,format=bgr0' \
+-c:v libx265 -crf 28 -preset medium -c:a libvorbis \
+-map 0:0 -map 1:0 -map 2:0 \
+~/videos/$(date "+%y%m%d_%H-%M-%S").mkv

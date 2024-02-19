@@ -1,0 +1,29 @@
+ncmpcpp_directory = ~/.config/ncmpcpp
+
+mpd_host = localhost
+mpd_port = 6600
+mpd_music_dir = ~/music
+
+user_interface = alternative
+startup_screen = "media_library"
+media_library_primary_tag = "album_artist"
+follow_now_playing_lyrics = "yes"
+display_bitrate = "yes"
+connected_message_on_startup = "yes"
+use_console_editor = "yes"
+external_editor = "nvim"
+colors_enabled = "yes"
+
+progressbar_look = "━━━"
+progressbar_elapsed_color = "white"
+progressbar_color = "black"
+
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "Visualizer"
+visualizer_in_stereo = "yes"
+visualizer_fps = "60"
+visualizer_type = "ellipse"
+visualizer_look = "◦•"
+visualizer_color = "cyan, magenta, yellow, black, white"
+visualizer_spectrum_smooth_look = "no"
+visualizer_autoscale = "yes"

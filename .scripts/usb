@@ -1,0 +1,27 @@
+#!/bin/sh
+
+sudo fdisk -l; read -p "Press any key to continue.. " -n1 -s
+
+device=$(sudo fdisk -l | grep -o '^/dev/sd[a-z][0-9]' | fzf)
+
+if [[ -z "$device" ]]; then
+    echo "No device selected"
+else
+    name=$(echo $device | grep -Po "^.*/\K[^:@]*")
+    if [[ -z "${device##/dev/*}" ]]; then
+        read -p "Connect(c) or Disconnect(d)? " choice
+        if [[ $choice == "C" ]] || [[ $choice == "c" ]]; then
+            sudo mkdir -p /mnt/$name
+            echo "Connecting: $device"
+            sudo mount -o uid=$(id -u),gid=$(id -g) $device /mnt/$name
+            echo "Connected: $device to /mnt/$name"
+        elif [[ $choice == "D" ]] || [[ $choice == "d" ]]; then
+            sudo umount /mnt/$name && sudo rm -rf /mnt/$name
+            echo "Disconnected /mnt/$name"
+        else
+            echo "Option not found"
+        fi
+    else
+        echo "Device not found"
+    fi
+fi

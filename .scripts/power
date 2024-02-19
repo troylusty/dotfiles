@@ -1,0 +1,28 @@
+#!/bin/sh
+
+choice=$(echo -e "Shutdown\nReboot\nLock\nSuspend\nLogout" | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Power:" -H 28)
+
+if [[ $choice == "Shutdown" ]]; then
+    sure=$(echo -e "Yes\nNo" | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Are you sure? " -H 28)
+    if [[ $sure == "Yes" ]]; then
+        systemctl poweroff
+    fi
+elif [[ $choice == "Reboot" ]]; then
+    sure=$(echo -e "Yes\nNo" | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Are you sure? " -H 28)
+    if [[ $sure == "Yes" ]]; then
+        systemctl reboot
+    fi
+elif [[ $choice == "Lock" ]] || [[ $choice == "suspend" ]]; then
+    sleep 1 && hyprctl dispatch dpms off
+    waylock -init-color 0x000000 -input-color 0xffffff -fail-color 0xdc322f
+    if [[ $choice == "suspend" ]]; then
+        systemctl suspend
+    fi
+elif [[ $choice == "Logout" ]]; then
+    sure=$(echo -e "Yes\nNo" | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Are you sure? " -H 28)
+    if [[ $sure == "Yes" ]]; then
+        hyprctl dispatch exit
+    fi
+else
+    exit
+fi
