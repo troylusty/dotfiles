@@ -3,3 +3,5 @@
 	name = Troy
 [init]
 	defaultBranch = main
+[commit]
+	gpgsign = true

@@ -4,7 +4,7 @@
     "fixed-center": "true",
     "modules-left": ["hyprland/workspaces", "hyprland/window"],
     "modules-center": ["clock", "mpd"],
-    "modules-right": ["custom/rivalcfg", "wireplumber", "network", "cpu", "memory", "backlight", "battery", "bluetooth", "tray"],
+    "modules-right": ["wireplumber", "network", "cpu", "memory", "backlight", "battery", "bluetooth", "tray"],
     "hyprland/workspaces": {
         "disable-scroll": true,
 	    "on-click": "activate",
@@ -115,10 +115,5 @@
         "format-icons": {
             "default": ["󰕿", "󰖀", "󰕾"],
         },
-    },
-    "custom/rivalcfg": {
-        "format": "󰍽 {}%",
-        "interval": 600,
-        "exec": "rivalcfg --battery-level | awk -F ' ' '{print $4}'",
     },
 }

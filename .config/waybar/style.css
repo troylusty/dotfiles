@@ -52,8 +52,7 @@ button:hover {
 #backlight,
 #battery,
 #bluetooth,
-#tray,
-#custom-rivalcfg {
+#tray {
   margin: 0 6px;
   padding: 2px 0;
 }
