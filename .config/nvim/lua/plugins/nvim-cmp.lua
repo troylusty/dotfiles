@@ -1,4 +1,3 @@
--- https://youtu.be/h4g0m0Iwmys
 return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
