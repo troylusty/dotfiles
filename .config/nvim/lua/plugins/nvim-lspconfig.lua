@@ -4,7 +4,7 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = { "lua_ls", "bashls", "html", "cssls", "pylsp", "typst_lsp", "rust_analyzer", "marksman", "gopls" } -- needs nodejs and npm
+            ensure_installed = { "lua_ls", "bashls", "html", "cssls", "pylsp", "typst_lsp", "rust_analyzer", "marksman", "gopls" } -- needs nodejs npm rust-analyzer
         })
 
         local on_attach = function(_, _)
