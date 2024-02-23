@@ -23,3 +23,5 @@ alias \
     vps="ssh root@git.troylusty.com" \
     vim="nvim" \
     gobuild="go build -ldflags '-s -w'" \
+
+eval "$(starship init bash)"
