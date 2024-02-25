@@ -1,7 +1,6 @@
 #!/bin/sh
 
 read -p "NVIDIA? (y or n) " nvidia
-
 if [[ $nvidia == "y" ]] || [[ $nvidia == "Y" ]]; then
     sudo pacman -S nvidia-open-dkms libva
     #cat "nvidia_drm.modeset=1" >> /boot/loader/entries/arch.conf
@@ -11,14 +10,12 @@ fi
 
 if [[ -z "sudo pacman -Q | grep paru" ]]; then
     sudo pacman -S --needed base-devel
+    cd /tmp
     git clone https://aur.archlinux.org/paru.git
     cd paru
     makepkg -si
-    cd ..
-    rm -rf paru
+    cd
 fi
-
-#echo "end" & exit
 
 sudo pacman -S \
     pipewire wireplumber polkit-gnome qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
@@ -32,7 +29,7 @@ sudo pacman -S \
     waybar \
     yazi ffmpegthumbnailer ntfs-3g \
     bat bemenu btop \
-    blener gimp inkscape godot \
+    blender gimp inkscape godot \
     grim slurp \
     hugo rust typst \
     imv mpv \
@@ -58,3 +55,5 @@ paru -S \
     reflector \
     rivalcfg \
     tor-browser-bin \
+
+paru --clean

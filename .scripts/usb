@@ -2,7 +2,7 @@
 
 sudo fdisk -l; read -p "Press any key to continue.. " -n1 -s
 
-device=$(sudo fdisk -l | grep -o '^/dev/sd[a-z][0-9]' | fzf)
+device=$(sudo fdisk -l | grep -o '^/dev/sd[a-z][0-9]' | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Device: " -H 28)
 
 if [[ -z "$device" ]]; then
     echo "No device selected"

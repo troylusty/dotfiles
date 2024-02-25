@@ -142,6 +142,7 @@ keymap = [
 	# Goto
 	{ on = [ "g", "h" ],       exec = "cd ~",             desc = "Go to the home directory" },
 	{ on = [ "g", "c" ],       exec = "cd ~/.config",     desc = "Go to the config directory" },
+	{ on = [ "g", "s" ],       exec = "cd ~/.scripts",     desc = "Go to the scripts directory" },
 	{ on = [ "g", "d" ],       exec = "cd ~/downloads",   desc = "Go to the downloads directory" },
 	{ on = [ "g", "T" ],       exec = "cd /tmp",          desc = "Go to the temporary directory" },
     { on = [ "g", "D" ],       exec = "cd ~/documents",          desc = "Go to the documents directory" },
