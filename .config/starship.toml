@@ -8,6 +8,7 @@ $git_status\
 $cmd_duration\
 $line_break\
 $python\
+$rust\
 $character"""
 
 [directory]
@@ -44,4 +45,8 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[rust]
+format = '[$version](red bold)'
+style = "red bold"
 

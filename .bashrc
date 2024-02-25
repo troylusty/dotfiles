@@ -20,7 +20,7 @@ alias \
     neofetch="fastfetch" \
     ss="ss -tulpn" \
     hugoup="hugo server --noHTTPCache -D" \
-    vps="ssh root@git.troylusty.com" \
+    vps="ssh root@23.94.86.147" \
     vim="nvim" \
     gobuild="go build -ldflags '-s -w'" \
 
