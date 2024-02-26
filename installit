@@ -20,8 +20,7 @@ fi
 sudo pacman -S \
     pipewire wireplumber polkit-gnome qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
     dunst \
-    fastfetch \
-    foot \
+    foot fastfetch starship \
     hyprland hyprpaper gnome-themes-extra \
     ly \
     mpd ncmpcpp mpc \
@@ -56,5 +55,6 @@ paru -S \
     rivalcfg \
     tor-browser-bin \
     adw-gtk3-git \
+    aylurs-gtk-shell mpdris2 \
 
 paru --clean
