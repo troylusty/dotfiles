@@ -55,5 +55,6 @@ paru -S \
     reflector \
     rivalcfg \
     tor-browser-bin \
+    adw-gtk3-git \
 
 paru --clean
