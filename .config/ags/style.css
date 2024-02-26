@@ -1,6 +1,6 @@
 window.bar {
-    background-color: @theme_bg_color;
-    color: @theme_fg_color;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
 }
 
 button {
@@ -10,24 +10,18 @@ button {
     background-color: transparent;
 }
 
-button:active {
-    background-color: @theme_selected_bg_color;
-}
-
-button:hover {
-    border-bottom: 3px solid @theme_fg_color;
-}
-
 label {
-    font-weight: bold;
+    font-size: 12px;
+    font-weight: 500;
+    font-family: "JetBrainsMono NF";
+}
+
+.workspaces button {
+    color: #808080;
 }
 
 .workspaces button.focused {
-    border-bottom: 3px solid @theme_selected_bg_color;
-}
-
-.client-title {
-    color: @theme_selected_bg_color;
+    color: #ffffff;
 }
 
 .notification {
