@@ -55,6 +55,6 @@ paru -S \
     rivalcfg \
     tor-browser-bin \
     adw-gtk3-git \
-    aylurs-gtk-shell mpdris2 \
+    aylurs-gtk-shell mpd-mpris \
 
 paru --clean

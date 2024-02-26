@@ -13,7 +13,6 @@ connected_message_on_startup = "yes"
 use_console_editor = "yes"
 external_editor = "nvim"
 colors_enabled = "yes"
-execute_on_song_change =
 
 progressbar_look = "━━━"
 progressbar_elapsed_color = "white"

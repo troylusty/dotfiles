@@ -6,11 +6,11 @@ const battery = await Service.import('battery');
 const systemtray = await Service.import('systemtray');
 
 const date = Variable('', {
-    poll: [1000, 'date "+%H:%M:%S %b %e."'],
+    poll: [1000, 'date "+%H:%M:%S, %a %d %b %Y"'],
 });
 
 // widgets can be only assigned as a child in one container
-// so to make a reuseable widget, make it a function
+// so to make a reusable widget, make it a function
 // then you can simply instantiate one by calling it
 
 function Workspaces() {
@@ -36,8 +36,6 @@ const Clock = () => Widget.Label({
     label: date.bind(),
 });
 
-// we don't need dunst or any other notification daemon
-// because the Notifications module is a notification daemon itself
 function Notification() {
     const popups = notifications.bind('popups');
     return Widget.Box({
@@ -62,37 +60,36 @@ const Media = () => Widget.Button({
     child: Widget.Label('-').hook(mpris, self => {
         if (mpris.players[0]) {
             const { track_artists, track_title } = mpris.players[0];
-            self.label = `${track_artists.join(', ')} - ${track_title}`;
+            self.label = `${track_artists.join(', ')} ${track_title}`;
         } else {
-            self.label = 'Nothing is playing';
+            self.label = '';
         }
     }, 'player-changed'),
 });
 
 const Volume = () => Widget.Box({
     class_name: 'volume',
-    css: 'min-width: 180px',
     children: [
-        Widget.Icon().hook(audio.speaker, self => {
-            const category = {
-                101: 'overamplified',
-                67: 'high',
-                34: 'medium',
-                1: 'low',
-                0: 'muted',
-            };
-
-            const icon = audio.speaker.is_muted ? 0 : [101, 67, 34, 1, 0].find(
-                threshold => threshold <= audio.speaker.volume * 100);
-
-            self.icon = `audio-volume-${category[icon]}-symbolic`;
+        Widget.Button({
+            on_primary_click: () => audio.speaker.is_muted = !audio.speaker.is_muted,
+            child: Widget.Icon().hook(audio.speaker, self => {
+                const category = {
+                    101: 'overamplified',
+                    67: 'high',
+                    34: 'medium',
+                    1: 'low',
+                    0: 'muted',
+                };
+                const icon = audio.speaker.is_muted ? 0 : [101, 67, 34, 1, 0].find(
+                    threshold => threshold <= audio.speaker.volume * 100);
+                self.icon = `audio-volume-${category[icon]}-symbolic`;
+            }),
         }),
-        Widget.Slider({
-            hexpand: true,
-            draw_value: false,
-            on_change: ({ value }) => audio.speaker.volume = value,
-            setup: self => self.hook(audio.speaker, () => {
-                self.value = audio.speaker.volume || 0;
+        Widget.Button({
+            on_scroll_up: () => audio.speaker.volume += 0.05,
+            on_scroll_down: () => audio.speaker.volume -= 0.05,
+            child: Widget.Label().hook(audio.speaker, self => {
+                self.label = (audio.speaker.volume*100).toFixed();
             }),
         }),
     ],
@@ -107,11 +104,8 @@ const BatteryLabel = () => Widget.Box({
                 `battery-level-${Math.floor(p / 10) * 10}-symbolic`,
             ),
         }),
-        Widget.ProgressBar({
-            vpack: 'center',
-            fraction: battery.bind('percent').as(p =>
-                p > 0 ? p / 100 : 0,
-            ),
+        Widget.Label({
+            label: battery.bind('percent').as(p => p > 0 ? p / 100 : 0),
         }),
     ],
 });

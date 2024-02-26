@@ -27,8 +27,3 @@ label {
 .notification {
     color: yellow;
 }
-
-progress,
-highlight {
-    min-height: 8px;
-}
