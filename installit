@@ -19,13 +19,12 @@ fi
 
 sudo pacman -S \
     pipewire wireplumber polkit-gnome qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
-    dunst \
+    waybar dunst \
     foot fastfetch starship \
-    hyprland hyprpaper gnome-themes-extra \
+    hyprland hyprpaper \
     ly \
     mpd ncmpcpp mpc \
     neovim nodejs npm \
-    waybar \
     yazi ffmpegthumbnailer ntfs-3g \
     bat bemenu btop \
     blender gimp inkscape godot \
@@ -55,6 +54,5 @@ paru -S \
     rivalcfg \
     tor-browser-bin \
     adw-gtk3-git \
-    aylurs-gtk-shell mpd-mpris \
 
 paru --clean
