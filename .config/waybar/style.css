@@ -52,7 +52,8 @@ button:hover {
 #backlight,
 #battery,
 #bluetooth,
-#tray {
+#tray,
+#privacy {
   margin: 0 6px;
   padding: 2px 0;
 }

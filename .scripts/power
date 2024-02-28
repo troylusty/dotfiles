@@ -14,7 +14,7 @@ elif [[ $choice == "Reboot" ]]; then
     fi
 elif [[ $choice == "Lock" ]] || [[ $choice == "suspend" ]]; then
     sleep 1 && hyprctl dispatch dpms off
-    waylock -init-color 0x000000 -input-color 0xffffff -fail-color 0xdc322f
+    hyprlock
     if [[ $choice == "suspend" ]]; then
         systemctl suspend
     fi
