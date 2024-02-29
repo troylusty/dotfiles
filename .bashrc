@@ -19,7 +19,7 @@ alias \
     lsl="ls -hal" \
     neofetch="fastfetch" \
     ss="ss -tulpn" \
-    hugoup="hugo server --noHTTPCache -D" \
+    hugoup="hugo server --noHTTPCache --disableFastRender -D" \
     vps="ssh root@23.94.86.147" \
     vim="nvim" \
     gobuild="go build -ldflags '-s -w'" \

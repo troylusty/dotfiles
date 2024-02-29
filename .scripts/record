@@ -9,3 +9,10 @@ ffmpeg \
 -c:v libx265 -crf 28 -preset medium -c:a libvorbis \
 -map 0:0 -map 1:0 -map 2:0 \
 ~/videos/$(date "+%y%m%d_%H-%M-%S").mkv
+
+#wf-recorder \
+#    --audio \
+#    --codec h264_nvenc \
+#    --bframes 0 \
+#    --framerate 30 \
+#    --file ~/videos/$(date "+%y%m%d_%H-%M-%S").mkv \
