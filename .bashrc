@@ -23,5 +23,6 @@ alias \
     vps="ssh root@23.94.86.147" \
     vim="nvim" \
     gobuild="go build -ldflags '-s -w'" \
+    dust="dust --reverse" \
 
 eval "$(starship init bash)"
