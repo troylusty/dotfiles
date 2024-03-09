@@ -46,6 +46,7 @@ sudo pacman -S \
     wl-clipboard \
     zathura zathura-pdf-poppler \
     dust \
+    gnome-themes-extra \
 
 paru -S \
     hyprpicker-git hyprlock-git hypridle-git \
@@ -53,6 +54,5 @@ paru -S \
     reflector \
     rivalcfg \
     tor-browser-bin \
-    adw-gtk3-git \
 
 paru --clean
