@@ -6,13 +6,13 @@ services:
       - '8000:8000'
     container_name: portainer
     networks:
-      - nginxproxymanager_default
+      - nginx-proxy-manager_default
     restart: always
     volumes:
       - '/var/run/docker.sock:/var/run/docker.sock'
-      - '/home/docker/portainer:/data'
+      - '/root/docker/portainer:/data'
     image: 'portainer/portainer-ce:latest'
 
 networks:
-  nginxproxymanager_default:
+  nginx-proxy-manager_default:
     external: true
