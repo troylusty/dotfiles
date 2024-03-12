@@ -1,0 +1,27 @@
+version: '3'
+services:
+  goaccess:
+    image: 'xavierh/goaccess-for-nginxproxymanager:latest'
+    container_name: goaccess
+    restart: always
+    ports:
+      - '7880:7880'
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=GMT
+      - SKIP_ARCHIVED_LOGS=False
+      - DEBUG=False
+      - BASIC_AUTH=True
+      - BASIC_AUTH_USERNAME=troy
+      - BASIC_AUTH_PASSWORD=K&n4pF5n8*fnLR
+      - EXCLUDE_IPS=127.0.0.1
+      - LOG_TYPE=NPM
+    volumes:
+      - /home/docker/nginxproxymanager/data/logs:/opt/log
+    networks:
+      - nginxproxymanager_default
+
+networks:
+  nginxproxymanager_default:
+    external: true
