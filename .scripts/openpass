@@ -1,0 +1,5 @@
+#!/bin/sh
+
+choice=$(ls ~/.password-store | cut -f 1 -d '.' | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Password:" -H 28)
+
+pass show -c $choice

@@ -47,6 +47,7 @@ sudo pacman -S \
     zathura zathura-pdf-poppler \
     dust \
     gnome-themes-extra \
+    pass \
 
 paru -S \
     hyprpicker-git hyprlock-git hypridle-git \

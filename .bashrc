@@ -25,4 +25,6 @@ alias \
     gobuild="go build -ldflags '-s -w'" \
     dust="dust --reverse" \
 
+export GPG_TTY=$(tty)
+
 eval "$(starship init bash)"

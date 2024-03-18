@@ -6,4 +6,4 @@ obtainium-export.json
 .gitignore
 .gitattributes
 installit
-\.podman
+\.docker
