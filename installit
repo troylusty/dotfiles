@@ -21,7 +21,7 @@ sudo pacman -S \
     pipewire wireplumber polkit-gnome qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
     waybar dunst \
     foot fastfetch starship \
-    hyprland hyprpaper \
+    hyprland hyprpaper hyprlock hypridle \
     ly \
     mpd ncmpcpp mpc \
     neovim nodejs npm \
@@ -47,10 +47,10 @@ sudo pacman -S \
     zathura zathura-pdf-poppler \
     dust \
     gnome-themes-extra \
-    pass \
+    pass pass-otp zbar \
 
 paru -S \
-    hyprpicker-git hyprlock-git hypridle-git \
+    hyprpicker-git \
     librewolf-bin \
     reflector \
     rivalcfg \

@@ -24,6 +24,7 @@ alias \
     vim="nvim" \
     gobuild="go build -ldflags '-s -w'" \
     dust="dust --reverse" \
+    tarit="tar -czvf" \
 
 export GPG_TTY=$(tty)
 
