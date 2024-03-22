@@ -1,0 +1,3 @@
+#!/bin/sh
+
+magick convert $1.webp -quality 50% $1.avif

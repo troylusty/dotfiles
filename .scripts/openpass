@@ -1,5 +1,26 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-choice=$(ls ~/.password-store | cut -f 1 -d '.' | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Password:" -H 28)
+shopt -s nullglob globstar
 
-pass show -c $choice
+typeit=0
+if [[ $1 == "--type" ]]; then
+	typeit=1
+	shift
+fi
+
+xdotool="ydotool type --file -"
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store}
+password_files=( "$prefix"/**/*.gpg )
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+password=$(printf '%s\n' "${password_files[@]}" | bemenu --no-exec --fn "JetBrainsMono NF 10" -p "Password:" -H 28 "$@")
+
+[[ -n $password ]] || exit
+
+if [[ $typeit -eq 0 ]]; then
+	pass show -c "$password" 2>/dev/null
+else
+	pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
+fi

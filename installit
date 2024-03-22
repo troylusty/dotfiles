@@ -20,7 +20,7 @@ fi
 sudo pacman -S \
     pipewire wireplumber polkit-gnome qt5-wayland qt6-wayland xdg-desktop-portal-hyprland \
     waybar dunst \
-    foot fastfetch starship \
+    foot starship \
     hyprland hyprpaper hyprlock hypridle \
     ly \
     mpd ncmpcpp mpc \
@@ -45,15 +45,13 @@ sudo pacman -S \
     unarchiver \
     wl-clipboard \
     zathura zathura-pdf-poppler \
-    dust \
     gnome-themes-extra \
-    pass pass-otp zbar \
+    solaar \
 
 paru -S \
     hyprpicker-git \
     librewolf-bin \
     reflector \
-    rivalcfg \
     tor-browser-bin \
 
 paru --clean

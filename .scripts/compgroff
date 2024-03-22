@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#groff -ms $1.ms -T pdf > $1.pdf
+refer -PS -e -p references $1.ms | groff -ms -T pdf > $1.pdf
