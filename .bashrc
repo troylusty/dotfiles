@@ -8,6 +8,7 @@ PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\
 PS2="> "
 
 export PATH=$PATH:~/.scripts:
+export GPG_TTY=$(tty)
 
 alias \
     ls="ls --color=auto" \
@@ -17,15 +18,11 @@ alias \
     rm="rm -iv" \
     mkd="mkdir -pv" \
     lsl="ls -hal" \
-    neofetch="fastfetch" \
     ss="ss -tulpn" \
-    hugoup="hugo server --noHTTPCache --disableFastRender -D" \
+    hugoup="hugo server --noHTTPCache --disableFastRender --buildDrafts" \
     vps="ssh root@23.94.86.147" \
     vim="nvim" \
     gobuild="go build -ldflags '-s -w'" \
-    dust="dust --reverse" \
     tarit="tar -czvf" \
-
-export GPG_TTY=$(tty)
 
 eval "$(starship init bash)"

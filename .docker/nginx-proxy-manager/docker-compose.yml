@@ -10,3 +10,13 @@ services:
     volumes:
       - ./data:/data
       - ./letsencrypt:/etc/letsencrypt
+
+#networks:
+  #nginx-proxy-manager_default:
+    #external: true
+
+#add
+#networks:
+  #- nginx-proxy-manager_default
+
+# For reverse proxy use: docker inspect CONTAINER ID to find IP
