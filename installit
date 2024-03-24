@@ -45,13 +45,13 @@ sudo pacman -S \
     unarchiver \
     wl-clipboard \
     zathura zathura-pdf-poppler \
-    gnome-themes-extra \
     solaar \
 
 paru -S \
-    hyprpicker-git \
+    hyprpicker-git rose-pine-hyprcursor \
     librewolf-bin \
     reflector \
     tor-browser-bin \
+    adw-gtk3-git \
 
 paru --clean
