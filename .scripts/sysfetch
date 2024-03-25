@@ -17,5 +17,5 @@ free -m
 df -h /
 df -h /mnt/wdhdd
 
-cat /sys/class/power_supply/BAT1/capacity
-cat /sys/class/power_supply/BAT1/status
+cat /sys/class/power_supply/BAT0/capacity
+cat /sys/class/power_supply/BAT0/status

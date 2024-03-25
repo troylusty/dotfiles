@@ -45,7 +45,7 @@ sudo pacman -S \
     unarchiver \
     wl-clipboard \
     zathura zathura-pdf-poppler \
-    solaar \
+    libratbag \
 
 paru -S \
     hyprpicker-git rose-pine-hyprcursor \
