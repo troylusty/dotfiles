@@ -1,4 +1,5 @@
 #!/bin/sh
 
-#groff -ms $1.ms -T pdf > $1.pdf
-refer -PS -e -p references $1.ms | groff -ms -T pdf > $1.pdf
+if [[ $1 == *.ms ]];then
+    refer -PS -e -p references $1 | groff -ms -T pdf > $1.pdf
+fi
