@@ -2,4 +2,6 @@
 
 if [[ $1 == *.ms ]];then
     refer -PS -e -p references $1 | groff -ms -T pdf > $1.pdf
+else
+    echo "$1 is not an .ms file"
 fi
